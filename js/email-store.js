@@ -6,6 +6,10 @@ window.EmailStore = (function () {
 
 
     return {
+        getData: function () {
+            return list;
+        },
+
         group: function () {
 
         },

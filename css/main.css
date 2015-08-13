@@ -20,9 +20,6 @@ body {
     width: 400px;
 }
 
-.preview {
-}
-
 .filters {
     position: fixed;
     top: 0px;
@@ -34,4 +31,21 @@ body {
 
 .email-small {
     padding: 10px;
+}
+
+.email-small .head {
+    justify-content: space-between;
+    display: flex;
+}
+
+.email-small .head .from-name {
+    font-weight: bold;
+}
+
+.email-small .head .date {
+    color: blue;
+}
+
+.preview {
+    padding: 20px;
 }
