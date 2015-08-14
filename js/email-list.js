@@ -32,7 +32,7 @@ window.EmailList = (function () {
                 emailId = target.getAttribute("emailId");
 
                 if (emailId) {
-                    me.select(target);
+                    me.select(EmailStore.getById(emailId));
                 }
 
             });
@@ -45,7 +45,7 @@ window.EmailList = (function () {
                     me.add(list[i]);
                 }
 
-                me.select(listContainer.querySelector(".email-small"));
+                me.select(EmailStore.getAt(0));
             });
         },
 
@@ -53,7 +53,9 @@ window.EmailList = (function () {
             listContainer.insertAdjacentHTML("beforeend", _generateEmailItem(email));
         },
 
-        select: function (element) {
+        select: function (email) {
+            var element = listContainer.querySelector('.email-small[emailId="' + email._id + '"]');
+
             if (!element.classList.contains("selected")) {
                 this.clearSelection();
                 element.classList.add("selected");

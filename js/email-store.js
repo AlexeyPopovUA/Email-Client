@@ -19,7 +19,7 @@ window.EmailStore = (function () {
         },
 
         getAt: function (index) {
-
+            return list[index];
         },
 
         getById: function (id) {
