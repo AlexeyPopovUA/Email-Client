@@ -33,6 +33,10 @@ body {
     padding: 10px;
 }
 
+.email-small:hover {
+    cursor: pointer;
+}
+
 .email-small.selected {
     background-color: lightsteelblue;
 }
@@ -51,4 +55,8 @@ body {
 
 .preview {
     padding: 20px;
+}
+
+.preview .content {
+    width: 500px;
 }

@@ -2,14 +2,7 @@ window.EmailList = (function () {
     "use strict";
 
     function _generateEmailItem(email) {
-        return '' +
-            '<div class="email-small" emailId="' + email._id + '">' +
-                '<div class="head">' +
-                    '<span class="from-name">' + email.fromName + '</span>' +
-                    '<span class="date">5 mins ago</span>' +
-                '</div>' +
-                '<div class="subject">' + email.subject + '</div>' +
-            '</div>';
+        return new EmailItem(email).renderBrief();
     }
 
     function _generateSeparator(date) {
@@ -45,6 +38,8 @@ window.EmailList = (function () {
                 for (var i = 0, len = list.length; i < len; i++) {
                     me.add(list[i]);
                 }
+
+                EmailPreview.open(new EmailItem(list[0]));
             });
         },
 
