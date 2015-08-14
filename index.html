@@ -9,13 +9,16 @@
     <script type="application/javascript" src="js/email-list.js"></script>
     <script type="application/javascript" src="js/email-preview.js"></script>
     <script type="application/javascript" src="js/email-item.js"></script>
+
+    <!-- Loading local json. @see EmailStore#load -->
+    <script type="application/javascript" src="data/emails.js"></script>
 </head>
 <body>
 
 <div class="container">
     <div class="left-sidebar">
         <div class="filters">
-            <input type="checkbox"><span>Show read</span>
+            <input type="checkbox" class="read-status" checked="checked"><span>Show read</span>
         </div>
     </div>
     <div class="preview"></div>

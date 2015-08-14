@@ -1,13 +1,13 @@
 window.EmailStore = (function () {
     "use strict";
 
-    var list = [];
+    var originalList = [];
+    var modifiedList = [];
     var groups;
-
 
     return {
         getData: function () {
-            return list;
+            return modifiedList;
         },
 
         group: function () {
@@ -15,7 +15,7 @@ window.EmailStore = (function () {
         },
 
         sortBy: function (property, direction) {
-            list.sort(function (a, b) {
+            modifiedList = originalList.sort(function (a, b) {
                 if (a[property] > b[property]) {
                     return direction === "ASC" ? 1 : -1;
                 } else if (a[property] < b[property]) {
@@ -25,17 +25,31 @@ window.EmailStore = (function () {
                 }
             });
 
-            return list;
+            return modifiedList;
+        },
+
+        filterBy: function (property, value) {
+            var me = this;
+
+            modifiedList = originalList.filter(function (item) {
+                return item[property] === value;
+            });
+
+            return modifiedList;
+        },
+
+        clearFiltering: function () {
+            modifiedList = originalList.slice();
         },
 
         getAt: function (index) {
-            return list[index];
+            return modifiedList[index];
         },
 
         getById: function (id) {
-            for (var i = 0, len = list.length; i < len; i++) {
-                if (list[i]._id === id) {
-                    return list[i];
+            for (var i = 0, len = originalList.length; i < len; i++) {
+                if (originalList[i]._id === id) {
+                    return originalList[i];
                 }
             }
 
@@ -43,10 +57,13 @@ window.EmailStore = (function () {
         },
 
         load: function (callback) {
+            //Uncomment when using server
+            /*
             var xmlhttp = new XMLHttpRequest();
             var url = "json/emails.json";
 
             xmlhttp.onreadystatechange = function() {
+                debugger;
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     list = JSON.parse(xmlhttp.responseText);
                     callback(list);
@@ -54,6 +71,11 @@ window.EmailStore = (function () {
             };
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
+            */
+
+            //Quick solution to load local json wrapped by js file
+            originalList = EmailData;
+            callback(originalList);
         }
     }
 })();

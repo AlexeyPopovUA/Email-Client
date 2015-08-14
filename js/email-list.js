@@ -26,7 +26,7 @@ window.EmailList = (function () {
                     if (target.getAttribute("emailId")) {
                         break;
                     }
-                    target = target.parentNode
+                    target = target.parentNode;
                 }
 
                 emailId = target.getAttribute("emailId");
@@ -34,19 +34,36 @@ window.EmailList = (function () {
                 if (emailId) {
                     me.select(EmailStore.getById(emailId));
                 }
+            });
 
+            listContainer.querySelector(".read-status").addEventListener("change", function () {
+                if (this.checked) {
+                    EmailStore.clearFiltering();
+                    me.renderItems(EmailStore.getData());
+                } else {
+                    me.renderItems(EmailStore.filterBy("read", false));
+                }
+
+                me.select(EmailStore.getAt(0));
             });
 
             EmailStore.load(function (list) {
                 EmailStore.sortBy("dateReceived", "DESC");
                 //list.group();
 
-                for (var i = 0, len = list.length; i < len; i++) {
-                    me.add(list[i]);
-                }
-
+                me.renderItems(list);
                 me.select(EmailStore.getAt(0));
             });
+        },
+
+        renderItems: function (emailList) {
+            var me = this;
+
+            me.removeAllItems();
+
+            for (var j = 0, emailLen = emailList.length; j < emailLen; j++) {
+                me.add(emailList[j]);
+            }
         },
 
         add: function (email) {
@@ -77,6 +94,13 @@ window.EmailList = (function () {
 
         getSelection: function () {
             return selection;
+        },
+
+        removeAllItems: function () {
+            var emailElements = listContainer.querySelectorAll(".email-small");
+            for (var i = 0, elemLen = emailElements.length; i < elemLen; i++) {
+                listContainer.removeChild(emailElements[i]);
+            }
         }
     }
 })();
