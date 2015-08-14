@@ -14,8 +14,18 @@ window.EmailStore = (function () {
 
         },
 
-        sort: function () {
+        sortBy: function (property, direction) {
+            list.sort(function (a, b) {
+                if (a[property] > b[property]) {
+                    return direction === "ASC" ? 1 : -1;
+                } else if (a[property] < b[property]) {
+                    return direction === "ASC" ? -1 : 1;
+                } else {
+                    return 0;
+                }
+            });
 
+            return list;
         },
 
         getAt: function (index) {

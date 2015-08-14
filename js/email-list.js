@@ -38,7 +38,7 @@ window.EmailList = (function () {
             });
 
             EmailStore.load(function (list) {
-                //list.sort();
+                EmailStore.sortBy("dateReceived", "DESC");
                 //list.group();
 
                 for (var i = 0, len = list.length; i < len; i++) {
