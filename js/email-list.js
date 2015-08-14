@@ -20,15 +20,21 @@ window.EmailList = (function () {
             listContainer = document.querySelector(".left-sidebar");
             listContainer.addEventListener("click", function (event) {
                 var target = event.target || event.srcElement;
+                var emailId;
 
-                while(target != listContainer) {
+                while (target != listContainer) {
                     if (target.getAttribute("emailId")) {
                         break;
                     }
                     target = target.parentNode
                 }
-                console.log(target.getAttribute("emailId"));
-                me.select(target);
+
+                emailId = target.getAttribute("emailId");
+
+                if (emailId) {
+                    me.select(target);
+                }
+
             });
 
             EmailStore.load(function (list) {
@@ -39,7 +45,7 @@ window.EmailList = (function () {
                     me.add(list[i]);
                 }
 
-                EmailPreview.open(new EmailItem(list[0]));
+                me.select(listContainer.querySelector(".email-small"));
             });
         },
 
@@ -52,6 +58,8 @@ window.EmailList = (function () {
                 this.clearSelection();
                 element.classList.add("selected");
                 selection = element.getAttribute("emailId");
+
+                EmailPreview.open(new EmailItem(EmailStore.getById(selection)));
             }
         },
 

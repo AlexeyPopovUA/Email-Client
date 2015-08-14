@@ -23,7 +23,13 @@ window.EmailStore = (function () {
         },
 
         getById: function (id) {
+            for (var i = 0, len = list.length; i < len; i++) {
+                if (list[i]._id === id) {
+                    return list[i];
+                }
+            }
 
+            return null;
         },
 
         load: function (callback) {
