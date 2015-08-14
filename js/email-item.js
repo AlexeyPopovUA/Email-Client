@@ -35,11 +35,11 @@ window.EmailItem = (function () {
         return '' +
             '<div class="email-preview">' +
                 '<div class="head">' +
-                    '<div class="from-name">' + this.fromName + '</div>' +
-                    '<div class="to-names">' + 'mock "to" ' + '</div>' +
-                    '<div class="date">' + this.getDate() + '</div>' +
+                    '<div class="from-name">From: <span>' + this.fromName + '</span></div>' +
+                    '<div class="to-names">To: <span>' + 'mock "to" ' + '</span></div>' +
+                    '<div class="date">Received: <span>' + this.getDate() + '</span></div>' +
                 '</div>' +
-                '<div class="subject">' + this.subject + '</div>' +
+                '<div class="subject">Subject: <span>' + this.subject + '</span></div>' +
                 '<div class="content">' + this.content + '</div>' +
             '</div>';
     };
