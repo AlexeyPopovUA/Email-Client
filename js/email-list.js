@@ -1,19 +1,40 @@
 window.EmailList = (function () {
     "use strict";
 
+    /**
+     * Generates email list item
+     * @param email {window.EmailItem}
+     * @private
+     */
     function _generateEmailItem(email) {
         return email.renderBrief();
     }
 
+    /**
+     * Generates group separator
+     * @param label {String}
+     * @returns {String}
+     * @private
+     */
     function _generateSeparator(label) {
         return "<div class='separator'>" + label + "</div>"
     }
 
+    /**
+     * Contains link to the list container
+     */
     var listContainer;
 
+    /**
+     * Contains selected emailId
+     */
     var selection;
 
+    //public properties
     return {
+        /**
+         * Creates event listeners and starts data loading and rendering
+         */
         init: function () {
             var me = this;
 
@@ -54,6 +75,11 @@ window.EmailList = (function () {
             });
         },
 
+        /**
+         * This method renders list items with separators
+         * @param emailList {window.EmailItem[]}
+         * @param {Boolean} [append] if true, items will be appended to the list container
+         */
         renderItems: function (emailList, append) {
             var me = this;
             var lastShortDate;
@@ -64,7 +90,6 @@ window.EmailList = (function () {
             }
 
             for (var j = 0, emailLen = emailList.length; j < emailLen; j++) {
-                console.log(emailList[j].getShortDate());
                 nextShortDate = emailList[j].getShortDate();
                 if (lastShortDate !== nextShortDate){
                     me.addSeparator(nextShortDate);
@@ -74,14 +99,26 @@ window.EmailList = (function () {
             }
         },
 
+        /**
+         * Creates email item content and adds it to the list container
+         * @param email {window.EmailItem}
+         */
         addEmailItem: function (email) {
             listContainer.insertAdjacentHTML("beforeend", _generateEmailItem(email));
         },
 
+        /**
+         * Creates email list separator and adds it to the list container
+         * @param label {String} this text will be rendered in the separator
+         */
         addSeparator: function (label) {
             listContainer.insertAdjacentHTML("beforeend", _generateSeparator(label));
         },
 
+        /**
+         * This method selects item in item list by the email data object
+         * @param email {window.EmailItem}
+         */
         select: function (email) {
             var element = listContainer.querySelector('.email-small[emailId="' + email._id + '"]');
 
@@ -94,6 +131,9 @@ window.EmailList = (function () {
             }
         },
 
+        /**
+         * Clears all selections
+         */
         clearSelection: function () {
             var selected = listContainer.querySelectorAll(".selected");
 
@@ -104,10 +144,17 @@ window.EmailList = (function () {
             selection = null;
         },
 
+        /**
+         * Returns selection Id
+         * @returns {*}
+         */
         getSelection: function () {
             return selection;
         },
 
+        /**
+         * Removes all items from the list container
+         */
         removeAllItems: function () {
             var emailElements = listContainer.querySelectorAll(".email-small, .separator");
             for (var i = 0, elemLen = emailElements.length; i < elemLen; i++) {

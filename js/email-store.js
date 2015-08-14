@@ -1,19 +1,34 @@
 window.EmailStore = (function () {
     "use strict";
 
+    /**
+     * Contains original item list. Can be sorted
+     * @type {window.EmailItem[]}
+     */
     var originalList = [];
-    var modifiedList = [];
-    var groups;
 
+    /**
+     * Contains modified item list. Can be filtered
+     * @type {window.EmailItem[]}
+     */
+    var modifiedList = [];
+
+    //public members
     return {
+        /**
+         * Returns filtered data
+         * @returns {window.EmailItem[]}
+         */
         getData: function () {
             return modifiedList;
         },
 
-        group: function () {
-
-        },
-
+        /**
+         * Sorts original list
+         * @param property {String} sorting will be performed by this property
+         * @param direction {String}
+         * @returns {window.EmailItem[]}
+         */
         sortBy: function (property, direction) {
             modifiedList = originalList.sort(function (a, b) {
                 if (a[property] > b[property]) {
@@ -23,11 +38,17 @@ window.EmailStore = (function () {
                 } else {
                     return 0;
                 }
-            });
+            }).slice();
 
             return modifiedList;
         },
 
+        /**
+         * Filters original list by property value and updates the modified list
+         * @param property
+         * @param value
+         * @returns {Array}
+         */
         filterBy: function (property, value) {
             var me = this;
 
@@ -38,14 +59,27 @@ window.EmailStore = (function () {
             return modifiedList;
         },
 
+        /**
+         * Restores initial sorted content in the modified list
+         */
         clearFiltering: function () {
             modifiedList = originalList.slice();
         },
 
+        /**
+         * Returns item from modified list by it's index
+         * @param index
+         * @returns {window.EmailItem|undefined}
+         */
         getAt: function (index) {
             return modifiedList[index];
         },
 
+        /**
+         * Returns item from original list by it's id
+         * @param id
+         * @returns {window.EmailItem|null}
+         */
         getById: function (id) {
             for (var i = 0, len = originalList.length; i < len; i++) {
                 if (originalList[i]._id === id) {
@@ -56,6 +90,11 @@ window.EmailStore = (function () {
             return null;
         },
 
+        /**
+         * This method loads data from the json
+         * @TODO If the http server is being used for this application, please uncomment ajax request and enable CORS (if needed)
+         * @param callback
+         */
         load: function (callback) {
             //Uncomment when using server
             /*

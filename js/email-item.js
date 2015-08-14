@@ -1,6 +1,11 @@
 window.EmailItem = (function () {
     "use strict";
 
+    /**
+     * This is a constructor for email item
+     * @param email {Object}
+     * @constructor
+     */
     function EmailItem (email) {
         this.content  = email.content;
         this.subject = email.subject;
@@ -12,14 +17,27 @@ window.EmailItem = (function () {
         this._id = email._id;
     }
 
+    /**
+     * Displays how long ago this message was received
+     * @TODO Mock data should be replaced with calculated value
+     * @returns {string}
+     */
     EmailItem.prototype.getAge = function () {
         return "5 mins ago";
     };
 
+    /**
+     * Returns formatted data
+     * @returns {string}
+     */
     EmailItem.prototype.getDate = function () {
         return new Date(this.dateReceived).toDateString();
     };
 
+    /**
+     * Returns formatted data using formatting dd-mm-YY
+     * @returns {string}
+     */
     EmailItem.prototype.getShortDate = function () {
         var date = new Date(this.dateReceived);
 
@@ -34,6 +52,10 @@ window.EmailItem = (function () {
         return day + '-' + month + '-' + year;
     };
 
+    /**
+     * Returns view content for brief email rendering mode
+     * @returns {string}
+     */
     EmailItem.prototype.renderBrief = function () {
         return '' +
             '<div class="email-small" emailId="' + this._id + '">' +
@@ -45,6 +67,10 @@ window.EmailItem = (function () {
             '</div>';
     };
 
+    /**
+     * returns view content for detailed email rendering mode
+     * @returns {string}
+     */
     EmailItem.prototype.renderPreview = function () {
         return '' +
             '<div class="email-preview">' +
