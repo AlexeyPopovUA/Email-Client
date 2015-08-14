@@ -74,7 +74,9 @@ window.EmailStore = (function () {
             */
 
             //Quick solution to load local json wrapped by js file
-            originalList = EmailData;
+            for (var i = 0, len = EmailData.length; i < len; i++) {
+                originalList.push(new EmailItem(EmailData[i]));
+            }
             callback(originalList);
         }
     }

@@ -20,6 +20,20 @@ window.EmailItem = (function () {
         return new Date(this.dateReceived).toDateString();
     };
 
+    EmailItem.prototype.getShortDate = function () {
+        var date = new Date(this.dateReceived);
+
+        var day = date.getDate();
+        if (day < 10) day = '0' + day;
+
+        var month = date.getMonth() + 1;
+        if (month < 10) month = '0' + month;
+
+        var year = date.getFullYear();
+
+        return day + '-' + month + '-' + year;
+    };
+
     EmailItem.prototype.renderBrief = function () {
         return '' +
             '<div class="email-small" emailId="' + this._id + '">' +
