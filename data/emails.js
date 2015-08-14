@@ -4,7 +4,7 @@ window.EmailData = [
     "subject": "aliquip commodo ex nostrud anim ullamco",
     "fromEmail": "paulette_parker@gmail.com",
     "fromName": "Paulette Parker",
-    "dateReceived": 1433688138,
+    "dateReceived": 1433688138000,
     "index": 0,
     "read": false,
     "_id": "558070eecadb84b2cd4d5ee2"
@@ -14,7 +14,7 @@ window.EmailData = [
     "subject": "ullamco anim duis minim fugiat nostrud",
     "fromEmail": "britney_swanson@gmail.com",
     "fromName": "Britney Swanson",
-    "dateReceived": 1434247931,
+    "dateReceived": 1433688139000,
     "index": 1,
     "read": false,
     "_id": "558070ee57b34805dcfeaf07"
@@ -24,7 +24,7 @@ window.EmailData = [
     "subject": "quis ad excepteur elit dolor in",
     "fromEmail": "park_chavez@gmail.com",
     "fromName": "Park Chavez",
-    "dateReceived": 1433785604,
+    "dateReceived": 1433688140000,
     "index": 2,
     "read": true,
     "_id": "558070ee769a5c8c2c8e030b"
@@ -34,7 +34,7 @@ window.EmailData = [
     "subject": "do irure do nostrud incididunt et",
     "fromEmail": "sara_nicholson@gmail.com",
     "fromName": "Sara Nicholson",
-    "dateReceived": 1433174664,
+    "dateReceived": 1433174664000,
     "index": 3,
     "read": false,
     "_id": "558070eec0a9b8bdfa11fb1b"
@@ -44,7 +44,7 @@ window.EmailData = [
     "subject": "est culpa mollit et labore consequat",
     "fromEmail": "crosby_robinson@gmail.com",
     "fromName": "Crosby Robinson",
-    "dateReceived": 1434199475,
+    "dateReceived": 1434199475000,
     "index": 4,
     "read": true,
     "_id": "558070ee251e959b490dbbe3"
