@@ -1,6 +1,7 @@
-body {
-    padding: 0;
-    margin: 0;
+* {
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
 }
 
 .container {
@@ -9,15 +10,19 @@ body {
 }
 
 .left-sidebar, .preview {
-    display: inline-block;
-    vertical-align: top;
-    height: 600px;
+    top: 0;
+    position: absolute;
+    height: 100%;
     overflow-y: auto;
 }
 
 .left-sidebar {
     padding-top: 40px;
     width: 400px;
+}
+
+.preview {
+    left: 400px;
 }
 
 .filters {
@@ -79,7 +84,7 @@ body {
 }
 
 .preview .content {
-    width: 500px;
+    width: 600px;
 }
 
 .preview .subject {
