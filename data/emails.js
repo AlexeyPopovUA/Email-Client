@@ -4,7 +4,7 @@ window.EmailData = [
     "subject": "aliquip commodo ex nostrud anim ullamco",
     "fromEmail": "paulette_parker@gmail.com",
     "fromName": "Paulette Parker",
-    "dateReceived": 1433688138000,
+    "dateReceived": 1439588438000,
     "index": 0,
     "read": false,
     "_id": "558070eecadb84b2cd4d5ee2"
@@ -989,4 +989,4 @@ window.EmailData = [
     "read": true,
     "_id": "558070ee52deb7d9097aa7e6"
   }
-]
+];

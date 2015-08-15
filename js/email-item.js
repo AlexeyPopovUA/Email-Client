@@ -23,7 +23,7 @@ window.EmailItem = (function () {
      * @returns {string}
      */
     EmailItem.prototype.getAge = function () {
-        return "5 mins ago";
+        return humanized_time_span(new Date(this.dateReceived));
     };
 
     /**
