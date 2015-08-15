@@ -17,8 +17,11 @@
 }
 
 .left-sidebar {
-    padding-top: 40px;
     width: 400px;
+}
+
+.left-sidebar .email-list {
+    padding-top: 40px;
 }
 
 .preview {

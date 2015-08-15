@@ -3,7 +3,7 @@ window.EmailItem = (function () {
 
     /**
      * This is a constructor for email item
-     * @param email {Object}
+     * @param email {Object} simple object from json
      * @constructor
      */
     function EmailItem (email) {
