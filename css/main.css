@@ -12,6 +12,10 @@ body, html, .container {
 }
 
 .container {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
     display: flex;
 }
 
@@ -20,8 +24,10 @@ body, html, .container {
     float: left;
     height: 100%;
     position: relative;
-    overflow-y: auto;
     overflow-x: hidden;
+
+    overflow-y: scroll; /* has to be scroll, not auto */
+    -webkit-overflow-scrolling: touch;
 }
 
 .left-sidebar {
@@ -37,6 +43,12 @@ body, html, .container {
 .preview {
     height: 100%;
     overflow: auto;
+
+    -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 1;         /* OLD - Firefox 19- */
+    width: 20%;               /* For old syntax, otherwise collapses. */
+    -webkit-flex: 1;          /* Chrome */
+    -ms-flex: 1;              /* IE 10 */
     flex: 1;
 }
 
@@ -64,6 +76,12 @@ body, html, .container {
 
 .email-small .head {
     justify-content: space-between;
+    -webkit-justify-content: space-between;
+
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
     display: flex;
 }
 
