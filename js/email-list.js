@@ -17,7 +17,7 @@ window.EmailList = (function () {
      * @private
      */
     function _generateSeparator(label) {
-        return "<div class='separator'>" + label + "</div>"
+        return "<div class='separator opacity-animation'>" + label + "</div>"
     }
 
     /**

@@ -59,7 +59,7 @@ window.EmailItem = (function () {
      */
     EmailItem.prototype.renderBrief = function () {
         return '' +
-            '<div class="email-small" emailId="' + this._id + '">' +
+            '<div class="email-small opacity-animation" emailId="' + this._id + '">' +
                 '<div class="head">' +
                     '<span class="from-name">' + this.fromName + '</span>' +
                     '<span class="date">' + this.getAge() + '</span>' +
@@ -74,7 +74,7 @@ window.EmailItem = (function () {
      */
     EmailItem.prototype.renderPreview = function () {
         return '' +
-            '<div class="email-preview appear">' +
+            '<div class="email-preview opacity-animation">' +
                 '<div class="head">' +
                     '<div class="from-name">From: <span>' + this.fromName + '</span></div>' +
                     '<div class="to-names">To: <span>' + this.toName + '</span></div>' +

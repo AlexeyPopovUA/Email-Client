@@ -125,14 +125,14 @@ body, html, .container {
     font-weight: bold;
 }
 
-.appear {
-    animation: appear 1s;
-    -webkit-animation: appear 1s;
-    -moz-animation: appear 1s;
-    -o-animation: appear 1s;
+.opacity-animation {
+    animation: opacity-animation 1s;
+    -webkit-animation: opacity-animation 1s;
+    -moz-animation: opacity-animation 1s;
+    -o-animation: opacity-animation 1s;
 }
 
-@keyframes appear {
+@keyframes opacity-animation {
     0% {
         opacity: 0;
         -khtml-opacity: 0;
@@ -144,5 +144,14 @@ body, html, .container {
         -khtml-opacity: 1;
         -moz-opacity: 1;
         filter: alpha(opacity=100);
+    }
+}
+
+@-webkit-keyframes opacity-animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
