@@ -11,6 +11,10 @@ body, html, .container {
     overflow: hidden;
 }
 
+.container {
+    display: flex;
+}
+
 .left-sidebar, .preview {
     width: inherit;
     float: left;
@@ -33,6 +37,7 @@ body, html, .container {
 .preview {
     height: 100%;
     overflow: auto;
+    flex: 1;
 }
 
 .filters {
@@ -91,10 +96,6 @@ body, html, .container {
 .preview .head .to-names span,
 .preview .head .date span {
     font-weight: bold;
-}
-
-.preview .content {
-    width: 600px;
 }
 
 .preview .subject {
