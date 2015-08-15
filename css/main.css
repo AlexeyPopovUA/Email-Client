@@ -124,3 +124,25 @@ body, html, .container {
 .preview .subject span {
     font-weight: bold;
 }
+
+.appear {
+    animation: appear 1s;
+    -webkit-animation: appear 1s;
+    -moz-animation: appear 1s;
+    -o-animation: appear 1s;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        -khtml-opacity: 0;
+        -moz-opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    100% {
+        opacity: 1;
+        -khtml-opacity: 1;
+        -moz-opacity: 1;
+        filter: alpha(opacity=100);
+    }
+}

@@ -74,7 +74,7 @@ window.EmailItem = (function () {
      */
     EmailItem.prototype.renderPreview = function () {
         return '' +
-            '<div class="email-preview">' +
+            '<div class="email-preview appear">' +
                 '<div class="head">' +
                     '<div class="from-name">From: <span>' + this.fromName + '</span></div>' +
                     '<div class="to-names">To: <span>' + this.toName + '</span></div>' +
