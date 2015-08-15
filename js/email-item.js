@@ -11,6 +11,7 @@ window.EmailItem = (function () {
         this.subject = email.subject;
         this.fromEmail = email.fromEmail;
         this.fromName = email.fromName;
+        this.toName = email.toName;
         this.dateReceived = email.dateReceived;
         this.index = email.index;
         this.read = email.read;
@@ -76,7 +77,7 @@ window.EmailItem = (function () {
             '<div class="email-preview">' +
                 '<div class="head">' +
                     '<div class="from-name">From: <span>' + this.fromName + '</span></div>' +
-                    '<div class="to-names">To: <span>' + 'mock "to" ' + '</span></div>' +
+                    '<div class="to-names">To: <span>' + this.toName + '</span></div>' +
                     '<div class="date">Received: <span>' + this.getDate() + '</span></div>' +
                 '</div>' +
                 '<div class="subject">Subject: <span>' + this.subject + '</span></div>' +
